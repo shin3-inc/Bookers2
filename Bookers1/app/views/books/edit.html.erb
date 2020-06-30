@@ -1,3 +1,4 @@
+  <h1>Editing Books</h1>
   <!-- form_for部分 -->
   <%= form_for(@book, url: "/books/#{@book.id}") do |f| %>
 
@@ -15,3 +16,7 @@
     <%= f.submit 'Update Book' %>
    </div>
   <% end %>
+<br>
+<%= link_to "Show", book_path(@book.id) %>
+|
+<%=link_to 'Back', books_path %>

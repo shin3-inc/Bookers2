@@ -1,4 +1,5 @@
 <body>
+<p><%= notice %></p>
 
 <h1>Books</h1>
 
@@ -36,6 +37,7 @@
 
   <!-- form_for部分 -->
   <%= form_for(@book, url: '/books') do |f| %>
+
 
    <div class="field">
     <h4>Title</h4>
