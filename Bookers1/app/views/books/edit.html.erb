@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
+<% end %>
+
   <h1>Editing Books</h1>
   <!-- form_for部分 -->
   <%= form_for(@book, url: "/books/#{@book.id}") do |f| %>

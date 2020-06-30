@@ -1,8 +1,6 @@
 <body>
-<p><%= notice %></p>
 
 <h1>Books</h1>
-
 
 <table>
   <thead>
@@ -28,16 +26,16 @@
 
 <br>
 
-
-
-
 <h2>New Book</h2>
 
 
+<% if flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
+<% end %>
 
   <!-- form_for部分 -->
   <%= form_for(@book, url: '/books') do |f| %>
-
+   
 
    <div class="field">
     <h4>Title</h4>

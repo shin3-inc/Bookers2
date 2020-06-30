@@ -15,9 +15,9 @@ class BooksController < ApplicationController
   	  flash[:notice] = "Book was successfully created."
   	  redirect_to book_path(book.id)
   	else
-  	  redirect_to action: :index,
-  	  notice: 'error'
-  	 end
+  	  flash[:notice] = "[Error!] Don't be blanked."
+  	  redirect_to action: :index
+    end
   end
 
 
@@ -38,6 +38,7 @@ class BooksController < ApplicationController
   	   flash[:notice] = "Book was successfully uploded."
   	   redirect_to book_path(book.id)
   	else
+  	   flash[:notice] = "[Error!] Don't be blanked."
   	   redirect_to edit_book_path(book.id)
   	end
   end
