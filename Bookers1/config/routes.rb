@@ -7,7 +7,7 @@ get 'books/new'
 post 'books' => 'books#create'
 
 get 'books' => 'books#index'
-get 'books/:id' => 'books#show'
+get 'books/:id' => 'books#show', as: 'show'
 
 
 end
