@@ -1,0 +1,41 @@
+<body>
+
+<h1>Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.user.username %></td>
+        <td><%= link_to book_path(book.id) do %>
+          <%=book.title %> <% end %>
+        </td>
+        <td><%= book.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h2>New Book</h2>
+
+
+<% if flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
+<% end %>
+
+  <!-- form_for部分 -->
+  <%= render 'books/form', books: @books %>
+
+
+
+</body>

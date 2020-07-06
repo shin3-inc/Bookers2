@@ -1,0 +1,15 @@
+<% if flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
+<% end %>
+
+<h2>Name:</h2>
+<p><%= @book.user.username %></p>
+<h2>Title:</h2>
+<p><%= @book.title %></p>
+<h2>Body:</h2>
+<p><%= @book.body %></p>
+
+<br>
+<% if @book.user == current_user %>
+ <%= link_to "Destroy", book_path(@book), method: :delete %>
+<% end %>
