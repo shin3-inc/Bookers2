@@ -1,5 +1,8 @@
 <body>
 
+<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+  <!-- ユーザーがログインしていた時の処理 -->
+
 <h1>Books</h1>
 
 <table>
@@ -37,5 +40,22 @@
   <%= render 'books/form', books: @books %>
 
 
+
+
+<% else %>
+<!-- ユーザーがログインしていなかった時の処理 -->
+        <h1>welcome to <strong>Bookers</strong> !!</h1>
+          <p><strong>In Bookers,</strong>  you can share and
+          exchange your opinions , inpressions , and emotions</p>
+          <p>about various books!</p>
+        <br>
+        <div class="grid-6">
+          <%= link_to "sign in", new_user_registration_path, class: 'post' %>
+          <%= link_to "sign up", new_user_session_path, class: 'post' %>
+        </div>
+
+
+
+<% end %>
 
 </body>
