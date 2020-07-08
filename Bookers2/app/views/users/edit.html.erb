@@ -7,6 +7,7 @@
     <!-- ここにform_forを追加します -->
 
     <%= form_for(@user) do |f| %>
+    <%= render 'users/error_messages', user: f.object %>
       <div class="form-group has-icon">
         <label class="control-label sr-only" for="inputEmail">Name</label>
          <%= f.text_field :username, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"名前"%>

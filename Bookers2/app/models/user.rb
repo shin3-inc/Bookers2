@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-   validates :username, presence: true, uniqueness: true, length: {maximum: 50}
+   validates :username, presence: true, uniqueness: true, length: { in: 2..20 }
 
    has_many :books, dependent: :destroy
    attachment :profile_image # user image

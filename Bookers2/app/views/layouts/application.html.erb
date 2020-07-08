@@ -30,12 +30,12 @@
         <% if user_signed_in? %>
 
 
-          <li><span class="glyphicon glyphicon-home" aria-hidden="true" ></span>
+          <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
             <%= link_to "Home", user_path(current_user.id) %>
           </li>
 
           <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-            <%= link_to 'Users', user_path(current_user.id) %>
+            <%= link_to 'Users', users_path %>
           </li>
 
           <li><span class="glyphicon glyphicon-book" aria-hidden="true"></span>
@@ -50,12 +50,12 @@
         <% else %>
 
 
-          <li><span class="glyphicon glyphicon-home" aria-hidden="true" ></span>
-            <%= link_to "Home", books_path %>
+          <li><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+            <%= link_to "Home",root_path %>
           </li>
 
           <li><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
-            <%= link_to "About", books_path %>
+            <%= link_to "About", about_path %>
           </li>
 
           <li><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>

@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   resources :books
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :index]
+
+  get 'about' => 'homes#about'
+
+
 
 
 end

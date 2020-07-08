@@ -10,9 +10,16 @@ class BooksController < ApplicationController
     book = Book.new(book_params)
     book.user_id = current_user.id
     # ２. データをデータベースに保存するためのsaveメソッド実行
-    book.save
-    # ３. トップ画面へリダイレクト
-    redirect_to '/books'
+    if book.save
+      flash[:notice] = "Book was successfully created."
+      # ３. トップ画面へリダイレクト
+      redirect_to '/books'
+
+    else
+      flash[:notice] = "error."
+      @books = Book.all
+      render :index
+    end
   end
 
   def index

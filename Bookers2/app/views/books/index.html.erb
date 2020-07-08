@@ -1,43 +1,47 @@
 <body>
+<% if flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
+<% end %>
 
 <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
   <!-- ユーザーがログインしていた時の処理 -->
+  <div class="container">
+  <div class="row">
 
+ <div class="col-xs-4">
+  <!-- form_for部分 -->
+  <%= render 'books/form', books: @books %>
+ </div>
+
+
+<div class="col-xs-8">
 <h1>Books</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th></th>
       <th>Title</th>
-      <th>Body</th>
+      <th>Opinion</th>
     </tr>
   </thead>
 
   <tbody>
     <% @books.each do |book| %>
       <tr>
-        <td><%= book.user.username %></td>
+        <td>
+          <%= attachment_image_tag @user, :profile_image, :fill, 30, 30, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
         <td><%= link_to book_path(book.id) do %>
-          <%=book.title %> <% end %>
-        </td>
+          <%=book.title %> <% end %></td>
         <td><%= book.body %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+</div>
+
 <br>
-
-<h2>New Book</h2>
-
-
-<% if flash[:notice] %>
-  <div class="flash"><%= flash[:notice] %></div>
-<% end %>
-
-  <!-- form_for部分 -->
-  <%= render 'books/form', books: @books %>
 
 
 
@@ -55,7 +59,8 @@
         </div>
 
 
-
+</div>
+</div>
 <% end %>
 
 </body>
