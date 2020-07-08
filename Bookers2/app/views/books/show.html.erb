@@ -2,11 +2,12 @@
   <div class="flash"><%= flash[:notice] %></div>
 <% end %>
 
-<h2>Name:</h2>
+<h2>Book detail</h2>
+<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
 <p><%= @book.user.name %></p>
-<h2>Title:</h2>
+
 <p><%= @book.title %></p>
-<h2>Body:</h2>
+
 <p><%= @book.body %></p>
 
 <br>
