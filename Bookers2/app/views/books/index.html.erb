@@ -3,15 +3,16 @@
   <div class="flash"><%= flash[:notice] %></div>
 <% end %>
 
-<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+<!-- ユーザーがログインしているか調べる -->
+<% if user_signed_in? %>
   <!-- ユーザーがログインしていた時の処理 -->
   <div class="container">
   <div class="row">
 
- <div class="col-xs-4">
-  <!-- form_for部分 -->
-  <%= render 'books/form', books: @books %>
- </div>
+   <!-- form_for部分 -->
+   <div class="col-xs-4">
+    <%= render 'books/form', book: @book %>
+   </div>
 
 
 <div class="col-xs-8">
@@ -44,21 +45,28 @@
 <br>
 
 
-
-
 <% else %>
 <!-- ユーザーがログインしていなかった時の処理 -->
-        <h1>welcome to <strong>Bookers</strong> !!</h1>
-          <p><strong>In Bookers,</strong>  you can share and
-          exchange your opinions , inpressions , and emotions</p>
+      <div class="rou">
+        <div class="top-message col-md-offset-3col-md-6">
+        <h1>welcome to
+          <strong><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers</strong>!!</h1>
+          <p><strong>In
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers,</strong>
+            you can share and exchange your opinions , inpressions , and emotions</p>
           <p>about various books!</p>
-        <br>
-        <div class="grid-6">
-          <%= link_to "sign in", new_user_registration_path, class: 'post' %>
-          <%= link_to "sign up", new_user_session_path, class: 'post' %>
         </div>
 
+        <br>
+          <div class="btn-wrapper">
+            <div class="rou">
+              <%= link_to "Log in", new_user_session_path, class:"btn btn-info col-xs-10 col-xs-offset-1" %>
+            </div>
 
+          <div class="rou">
+              <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success col-xs-10 col-xs-offset-1" %>
+          </div>
+          </div>
 </div>
 </div>
 <% end %>

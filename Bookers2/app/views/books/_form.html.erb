@@ -3,11 +3,11 @@
 
 <h2>New book</h2>
 <!-- <form class="mt-20"> -->
-<%= form_for(@book, url: '/books') do |f| %>
-  <% if @book.errors.any? %>
-       <h3><%= @book.errors.count %>error!</h3>
+<%= form_for(book, url: '/books') do |f| %>
+  <% if book.errors.any? %>
+       <h3><%= book.errors.count %>error!</h3>
        <ul>
-         <% @book.errors.full_messages.each do |message| %>
+         <% book.errors.full_messages.each do |message| %>
          <li><%= message %></li>
          <% end %>
        </ul>
