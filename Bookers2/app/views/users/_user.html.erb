@@ -17,9 +17,7 @@
 
   <% if user.id == current_user.id %>
   <div class="row">
-      <span class=" btn btn-default glyphicon glyphicon-wrench">
-      <%= link_to "Edit", edit_user_path(user), class: "pull-right" %>
-      </span>
+      <%= link_to "Edit", edit_user_path(user), class: "btn btn-default btn-lg btn-block btn-base-1 mt-20 glyphicon glyphicon-wrench "%>
 
   </div>
   <% end %>

@@ -1,11 +1,14 @@
 <body>
+
 <% if flash[:notice] %>
   <div class="flash"><%= flash[:notice] %></div>
 <% end %>
 
 <!-- ユーザーがログインしているか調べる -->
 <% if user_signed_in? %>
-  <!-- ユーザーがログインしていた時の処理 -->
+
+<!-- ユーザーがログインしていた時の処理 -->
+
   <div class="container">
   <div class="row">
 
@@ -41,9 +44,9 @@
 </table>
 
 </div>
-
+</div>
+</div>
 <br>
-
 
 <% else %>
 <!-- ユーザーがログインしていなかった時の処理 -->
@@ -67,8 +70,6 @@
               <%= link_to "Sign up", new_user_registration_path, class:"btn btn-success col-xs-10 col-xs-offset-1" %>
           </div>
           </div>
-</div>
-</div>
+        </div>
 <% end %>
-
 </body>
