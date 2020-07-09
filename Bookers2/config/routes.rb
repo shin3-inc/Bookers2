@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :index]
   resources :books
   root 'homes#top'
-  get 'homes/about' # URLを指定
+  get 'home/about' => 'homes#about' # URLを指定
 
 end

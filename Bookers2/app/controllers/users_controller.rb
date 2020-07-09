@@ -2,9 +2,6 @@ class UsersController < ApplicationController
 
 # before_action :authenticate_user!,only: [:create,:edit,:update,:destroy,:index] 
 
-  def about
-  end
-
   def show
   	@user = User.find(params[:id])
   	@books = @user.books
