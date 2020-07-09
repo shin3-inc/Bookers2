@@ -1,4 +1,10 @@
 <div class="rou">
+
+
+<% if flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
+<% end %>
+
   <div class="col-xs-3">
     <%= render 'users/user', user: @user %>
   </div>
@@ -6,7 +12,7 @@
 <div class="col-xs-8">
 <h2>Editing Book</h2>
 
-  <%= form_for(@book, url: '/books') do |f| %>
+  <%= form_for(@book, url: book_path) do |f| %>
     <% if @book.errors.any? %>
        <h3><%= @book.errors.count %>error!</h3>
        <ul>

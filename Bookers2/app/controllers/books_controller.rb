@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
 
   def create
+    @books = Book.all
     # １. データを新規登録するためのインスタンス作成
     @book = Book.new(book_params)
     @book.user_id = current_user.id
@@ -12,29 +13,30 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
 
     else
+      @user = current_user
       flash[:notice] = "error."
-      @books = Book.all
       render :index
     end
   end
 
   def index
+    @books = Book.all
+    @book = Book.new
     @user = current_user
-  	@books = Book.all
-  	@form = Book.new
 
   end
 
   def show
-    @form = Book.new
+    @book_new = Book.new
   	@book = Book.find(params[:id])
-    @user = @book.user
+    @books = Book.all
+    # @user = @book.user
   end
 
   def edit
-    @book = Book.new
+
     @book = Book.find(params[:id])
-    @user = @book.user
+    @user = current_user
   end
 
   def update
@@ -43,6 +45,7 @@ class BooksController < ApplicationController
        flash[:notice] = "Book was successfully created."
        redirect_to book_path(@book.id)
     else
+       flash[:notice] = "error."
        render :edit
     end
   end
@@ -56,7 +59,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-  	params.require(:book).permit(:title, :body)
+  	params.require(:book).permit(:title, :body, :user_id)
   end
 
 end

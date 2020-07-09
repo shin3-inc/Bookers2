@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def index
     @user = current_user
     @users = User.all
-    @form = Book.new
+    @book = Book.new
   end
 
   private

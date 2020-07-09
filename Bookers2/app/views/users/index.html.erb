@@ -1,5 +1,10 @@
 <div class="row">
 
+
+<% if flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
+<% end %>
+
   <div class="col-xs-3">
     <%= render 'users/user', user: @user %>
   </div>
@@ -30,5 +35,5 @@
 </div>
 </div>
   <div class="col-xs-3">
-    <%= render 'books/form', book: @form %>
+    <%= render 'books/form', book: @book %>
   </div>

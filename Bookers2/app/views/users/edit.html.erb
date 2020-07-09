@@ -1,5 +1,10 @@
 
 
+<% if flash[:notice] %>
+  <div class="flash"><%= flash[:notice] %></div>
+<% end %>
+
+
 <div class="form-header text-center">
   <h2 class="form-header-title">User info</h2>
 </div>
