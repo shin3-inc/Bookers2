@@ -5,7 +5,7 @@
     <%= render 'users/user', user: @user %>
   </div>
 
-<div class="col-xs-8 ">
+<div class="col-xs-6 ">
 <h2>Books</h2>
 
 <% if @user.id == current_user.id %>
@@ -61,15 +61,11 @@
 
 <% end %>
 </div>
-
 </div>
-
 
   <div class="col-xs-3">
     <%= render 'books/form', book: @book %>
   </div>
-
-
 
 
 </body>
