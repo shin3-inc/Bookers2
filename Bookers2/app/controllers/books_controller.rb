@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 
+before_action :authenticate_user!
 
   def create
     @books = Book.all
@@ -14,7 +15,6 @@ class BooksController < ApplicationController
 
     else
       @user = current_user
-      flash[:notice] = "error."
       render :index
     end
   end
