@@ -2,12 +2,14 @@
 
 <%= form_for(book, url: '/books') do |f| %>
   <% if book.errors.any? %>
+      <div class="alert alert-warning">
        <h3><%= book.errors.count %>error!</h3>
        <ul>
          <% book.errors.full_messages.each do |message| %>
          <li><%= message %></li>
          <% end %>
        </ul>
+     </div>
   <% end %>
 
   <br>

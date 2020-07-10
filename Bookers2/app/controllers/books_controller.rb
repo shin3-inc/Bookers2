@@ -14,6 +14,7 @@ before_action :authenticate_user!
       redirect_to book_path(@book.id)
 
     else
+      flash[:notice] = "Error occurred!"
       @user = current_user
       render :index
     end
