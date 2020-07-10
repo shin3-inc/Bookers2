@@ -5,11 +5,7 @@
   <div class="flash"><%= flash[:notice] %></div>
 <% end %>
 
-  <div class="col-xs-3">
-    <%= render 'users/user', user: @user %>
-  </div>
 
-<div class="col-xs-8">
 <h2>Editing Book</h2>
 
   <%= form_for(@book, url: book_path) do |f| %>
@@ -41,9 +37,5 @@
   <%= link_to "Show", book_path(@book.id) %>
   |
   <%= link_to 'Back', books_path %>
-</div>
-</div>
 
-    <div class="col-xs-3">
-    <%= render 'books/form', book: @book %>
-  </div>
+</div>
